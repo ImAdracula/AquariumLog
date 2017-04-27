@@ -64,8 +64,17 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Aquarium\Aquarium.sql" />
+    <Build Include="TChemicals.sql" />
+    <Build Include="TFilters.sql" />
+    <Build Include="TLogEntry.sql" />
+    <Build Include="TSalt.sql" />
+    <Build Include="TFish.sql" />
+    <Build Include="TCrabs.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.local.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="Database.refactorlog" />
   </ItemGroup>
 </Project>
