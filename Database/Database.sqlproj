@@ -76,7 +76,4 @@
   <ItemGroup>
     <None Include="Database.local.publish.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <RefactorLog Include="Database.refactorlog" />
-  </ItemGroup>
 </Project>
