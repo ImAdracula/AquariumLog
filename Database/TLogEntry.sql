@@ -1,0 +1,5 @@
+﻿CREATE TABLE [dbo].[TLogEntry]
+(
+	[Id] INT NOT NULL PRIMARY KEY, 
+    [DateTime] DATETIME NOT NULL
+)
