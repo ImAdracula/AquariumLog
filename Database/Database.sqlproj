@@ -64,6 +64,14 @@
   </ItemGroup>
   <ItemGroup>
     <Build Include="Aquarium\Aquarium.sql" />
+    <Build Include="Aquarium\Tables\ChemicalTypes.sql" />
+    <Build Include="Aquarium\Tables\UnitsOfVolumetricMeasure.sql" />
+    <Build Include="Aquarium\Tables\UnitsOfMassMeasure.sql" />
+    <Build Include="Aquarium\Tables\LogEntries.sql" />
+    <Build Include="Aquarium\Tables\AdministeredChemicals.sql" />
+    <Build Include="Aquarium\Tables\UnitsOfItemMeasure.sql" />
+    <Build Include="Aquarium\Tables\FilterTypes.sql" />
+    <Build Include="Aquarium\Tables\ReplacedFilters.sql" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Database.local.publish.xml" />
