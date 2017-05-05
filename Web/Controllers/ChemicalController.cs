@@ -1,32 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using JessicasAquariumMonitor.Types;
 
 namespace JessicasAquariumMonitor.Web.Controllers
 {
-    [RoutePrefix(@"Chemical")]
-    public sealed class ChemicalController : ApiController
+    [RoutePrefix(@"ChemicalType")]
+    public sealed class ChemicalTypeController : ApiController
     {
         [HttpGet, Route(@"{id}")]
-        public Chemical Get(int id)
+        public ChemicalType Get(int id)
         {
             throw new NotImplementedException();
         }
 
         [HttpGet, Route(@"All")]
-        public IEnumerable<Chemical> Get()
+        public IEnumerable<ChemicalType> Get()
         {
             throw new NotImplementedException();
         }
 
         [HttpPost]
-        public void Add(Chemical chemical)
+        public void Add(ChemicalType ChemicalType)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut, Route(@"{id}")]
-        public void Update(int id, Chemical chemical)
+        public void Update(int id, ChemicalType ChemicalType)
         {
             throw new NotImplementedException();
         }

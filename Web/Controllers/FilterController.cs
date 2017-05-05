@@ -1,32 +1,33 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Http;
+using JessicasAquariumMonitor.Types;
 
 namespace JessicasAquariumMonitor.Web.Controllers
 {
-    [RoutePrefix(@"Filter")]
-    public sealed class FilterController : ApiController
+    [RoutePrefix(@"FilterType")]
+    public sealed class FilterTypeController : ApiController
     {
         [HttpGet, Route(@"{id}")]
-        public Filter Get(int id)
+        public FilterType Get(int id)
         {
             throw new NotImplementedException();
         }
 
         [HttpGet, Route(@"All")]
-        public IEnumerable<Filter> Get()
+        public IEnumerable<FilterType> Get()
         {
             throw new NotImplementedException();
         }
 
         [HttpPost]
-        public void Add(Filter filter)
+        public void Add(FilterType FilterType)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut, Route(@"{id}")]
-        public void Update(int id, Filter filter)
+        public void Update(int id, FilterType FilterType)
         {
             throw new NotImplementedException();
         }
