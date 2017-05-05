@@ -47,6 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\DecimalAttribute.cs" />
     <Compile Include="Entities\AdministeredChemical.cs" />
     <Compile Include="Entities\ChemicalType.cs" />
     <Compile Include="Entities\FilterType.cs" />
