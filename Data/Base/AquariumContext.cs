@@ -1,7 +1,7 @@
 ﻿using System.Data.Entity;
-using Data.Entities;
+using JessicasAquariumMonitor.Data.Entities;
 
-namespace Data.Base
+namespace JessicasAquariumMonitor.Data.Base
 {
     internal sealed class AquariumContext : DbContext
     {

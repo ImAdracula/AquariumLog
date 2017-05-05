@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Entities
+namespace JessicasAquariumMonitor.Data.Entities
 {
     [Table("UnitsOfItemMeasure", Schema = "Aquarium")]
     public class UnitOfItemMeasure : IUnitOfMeasure

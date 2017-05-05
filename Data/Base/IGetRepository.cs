@@ -1,7 +1,7 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 
-namespace Data.Base
+namespace JessicasAquariumMonitor.Data.Base
 {
     public interface IGetRepository<TEntity, in TId>
     {

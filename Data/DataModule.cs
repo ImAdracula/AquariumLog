@@ -1,9 +1,9 @@
-﻿using Data.Base;
-using Data.Repositories;
-using DryIoc;
+﻿using DryIoc;
+using JessicasAquariumMonitor.Data.Base;
+using JessicasAquariumMonitor.Data.Repositories;
 using JessicasAquariumMonitor.Helpers.DependencyInjection;
 
-namespace Data
+namespace JessicasAquariumMonitor.Data
 {
     public sealed class DataModule : IModule
     {

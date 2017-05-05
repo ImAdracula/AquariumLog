@@ -5,7 +5,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Data.Base
+namespace JessicasAquariumMonitor.Data.Base
 {
     internal abstract class AbstractRepository<TContext, TKey, TEntity> : IBulkGetRepository<TEntity, TKey>,
         IBulkAddRepository<TEntity, TKey>, IBulkDeleteRepository<TEntity, TKey>

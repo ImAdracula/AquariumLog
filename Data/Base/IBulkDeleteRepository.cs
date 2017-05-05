@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Data.Base
+namespace JessicasAquariumMonitor.Data.Base
 {
     public interface IBulkDeleteRepository<TEntity, in TId> : IDeleteRepository<TEntity, TId>
     {

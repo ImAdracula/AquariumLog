@@ -2,7 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Data.Base
+namespace JessicasAquariumMonitor.Data.Base
 {
     public interface IBulkGetRepository<TEntity, in TId> : IGetRepository<TEntity, TId>
     {

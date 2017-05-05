@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using Data.Base;
-using Data.Entities;
+using JessicasAquariumMonitor.Data.Base;
+using JessicasAquariumMonitor.Data.Entities;
 
-namespace Data.Repositories
+namespace JessicasAquariumMonitor.Data.Repositories
 {
     public interface IFilterTypeRepository : IBulkGetRepository<FilterType, int>, IBulkAddRepository<FilterType, int>,
         IBulkDeleteRepository<FilterType, int>

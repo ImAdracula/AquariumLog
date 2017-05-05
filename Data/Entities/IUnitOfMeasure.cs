@@ -1,4 +1,4 @@
-﻿namespace Data.Entities
+﻿namespace JessicasAquariumMonitor.Data.Entities
 {
     public interface IUnitOfMeasure
     {

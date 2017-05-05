@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Globalization;
 
-namespace Data.Base
+namespace JessicasAquariumMonitor.Data.Base
 {
     [AttributeUsage(AttributeTargets.Property)]
     public sealed class DecimalAttribute : ValidationAttribute

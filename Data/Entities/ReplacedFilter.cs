@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Entities
+namespace JessicasAquariumMonitor.Data.Entities
 {
     [Table("ReplacedFilters", Schema = "Aquarium")]
     public class ReplacedFilter

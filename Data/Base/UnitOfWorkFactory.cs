@@ -1,7 +1,7 @@
 ﻿using System.Data;
 using DryIoc;
 
-namespace Data.Base
+namespace JessicasAquariumMonitor.Data.Base
 {
     public interface IUnitOfWorkFactory
     {

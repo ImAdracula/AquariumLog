@@ -5,7 +5,7 @@ using JessicasAquariumMonitor.Types;
 
 namespace JessicasAquariumMonitor.Web.Controllers
 {
-    [RoutePrefix(@"ChemicalType")]
+    [RoutePrefix(@"Chemical")]
     public sealed class ChemicalTypeController : ApiController
     {
         [HttpGet, Route(@"{id}")]

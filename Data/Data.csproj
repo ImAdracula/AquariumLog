@@ -7,8 +7,8 @@
     <ProjectGuid>{71DE76C0-3632-49CC-BB29-C2CFB81B8E7C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Data</RootNamespace>
-    <AssemblyName>Data</AssemblyName>
+    <RootNamespace>JessicasAquariumMonitor.Data</RootNamespace>
+    <AssemblyName>JessicasAquariumMonitor.Data</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>

@@ -54,6 +54,7 @@
     <Compile Include="DependencyInjection\RegistratorExtensions.cs" />
     <Compile Include="General\EnumExtensions.cs" />
     <Compile Include="General\Guard.cs" />
+    <Compile Include="General\IConverter.cs" />
     <Compile Include="HelpersModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Data.Entities
+namespace JessicasAquariumMonitor.Data.Entities
 {
     [Table("LogEntries", Schema = "Aquarium")]
     public class LogEntry

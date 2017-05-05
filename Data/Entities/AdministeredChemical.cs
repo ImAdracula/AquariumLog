@@ -1,8 +1,8 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Data.Base;
+using JessicasAquariumMonitor.Data.Base;
 
-namespace Data.Entities
+namespace JessicasAquariumMonitor.Data.Entities
 {
     [Table("AdministeredChemicals", Schema = "Aquarium")]
     public class AdministeredChemical
