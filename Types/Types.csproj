@@ -48,7 +48,7 @@
     <Compile Include="ReplacedFilter.cs" />
     <Compile Include="UnitOfItemMeasure.cs" />
     <Compile Include="UnitOfMassMeasure.cs" />
-    <Compile Include="UnitOfMeasure.cs" />
+    <Compile Include="IUnitOfMeasure.cs" />
     <Compile Include="UnitOfMeasureType.cs" />
     <Compile Include="UnitOfVolumetricMeasure.cs" />
   </ItemGroup>
