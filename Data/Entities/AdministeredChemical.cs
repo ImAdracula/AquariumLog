@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Data.Base;
 
 namespace Data.Entities
 {
@@ -28,7 +29,7 @@ namespace Data.Entities
         [Column("UnitOfItemMeasureId"), ForeignKey(nameof(UnitOfItemMeasure))]
         public int? UnitOfItemMeasureId { get; set; }
 
-        [Required, Column("Amount")]
+        [Required, Column("Amount"), Decimal(9, 3)]
         public decimal Amount { get; set; }
 
         public virtual LogEntry LogEntry { get; set; }
