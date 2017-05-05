@@ -66,6 +66,7 @@ namespace JessicasAquariumMonitor.Helpers.DependencyInjection
         }
 
         public static void RegisterIfNotAlready<TInterface, TImplementation>(this IRegistrator registrator,
-            IReuse reuse = null) where TImplementation : TInterface => registrator.RegisterIfNotAlready(typeof(TInterface), typeof(TImplementation), reuse);
+            IReuse reuse = null) where TImplementation : TInterface
+            => registrator.RegisterIfNotAlready(typeof(TInterface), typeof(TImplementation), reuse);
     }
 }

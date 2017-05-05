@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace Data.Entities
 {
     [Table("UnitsOfMassMeasure", Schema = "Aquarium")]
-    public class UnitOfMassMeasure
+    public class UnitOfMassMeasure : IUnitOfMeasure
     {
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None), Column("Id")]
         public int Id { get; set; }

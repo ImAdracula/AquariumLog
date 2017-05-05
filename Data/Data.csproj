@@ -65,6 +65,7 @@
     <Compile Include="Entities\AdministeredChemical.cs" />
     <Compile Include="Entities\ChemicalType.cs" />
     <Compile Include="Entities\FilterType.cs" />
+    <Compile Include="Entities\IUnitOfMeasure.cs" />
     <Compile Include="Entities\LogEntry.cs" />
     <Compile Include="Entities\ReplacedFilter.cs" />
     <Compile Include="Entities\UnitOfItemMeasure.cs" />

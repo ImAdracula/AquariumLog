@@ -5,7 +5,8 @@ using Data.Entities;
 
 namespace Data.Repositories
 {
-    public interface IChemicalTypeRepository : IBulkGetRepository<ChemicalType, int>, IBulkAddRepository<ChemicalType, int>,
+    public interface IChemicalTypeRepository : IBulkGetRepository<ChemicalType, int>,
+        IBulkAddRepository<ChemicalType, int>,
         IBulkDeleteRepository<ChemicalType, int>
     {
     }
