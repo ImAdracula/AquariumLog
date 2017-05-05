@@ -9,14 +9,16 @@ namespace Data.Entities
         [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None), Column("Id")]
         public int Id { get; set; }
 
-        [Required, Column("LogEntryId")]
+        [Required, Column("LogEntryId"), ForeignKey(nameof(LogEntry))]
         public int LogEntryId { get; set; }
 
-        [Required, Column("FilterTypeId")]
+        [Required, Column("FilterTypeId"), ForeignKey(nameof(FilterType))]
         public int FilterTypeId { get; set; }
 
         [StringLength(50), Column("Note")]
         public string Note { get; set; }
 
+        public virtual LogEntry LogEntry { get; set; }
+        public virtual FilterType FilterType { get; set; }
     }
 }

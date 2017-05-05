@@ -30,6 +30,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DryIoc, Version=2.10.7.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DryIoc.dll.2.10.7\lib\net45\DryIoc.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -47,7 +50,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Base\AbstractRepository.cs" />
+    <Compile Include="Base\AquariumContext.cs" />
     <Compile Include="Base\DecimalAttribute.cs" />
+    <Compile Include="Base\IAddRepository.cs" />
+    <Compile Include="Base\IBulkAddRepository.cs" />
+    <Compile Include="Base\IBulkDeleteRepository.cs" />
+    <Compile Include="Base\IBulkGetRepository.cs" />
+    <Compile Include="Base\IDeleteRepository.cs" />
+    <Compile Include="Base\IGetRepository.cs" />
+    <Compile Include="Base\UnitOfWork.cs" />
+    <Compile Include="Base\UnitOfWorkFactory.cs" />
+    <Compile Include="DataModule.cs" />
     <Compile Include="Entities\AdministeredChemical.cs" />
     <Compile Include="Entities\ChemicalType.cs" />
     <Compile Include="Entities\FilterType.cs" />
@@ -57,9 +71,15 @@
     <Compile Include="Entities\UnitOfMassMeasure.cs" />
     <Compile Include="Entities\UnitOfVolumetricMeasure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ChemicalType.cs" />
+    <Compile Include="Repositories\FilterTypeRepository.cs" />
+    <Compile Include="Repositories\LogEntryRepository.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Repositories\" />
+    <ProjectReference Include="..\Helpers\Helpers.csproj">
+      <Project>{9cdf45a4-de58-4899-9cdd-aa9938aef6b0}</Project>
+      <Name>Helpers</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

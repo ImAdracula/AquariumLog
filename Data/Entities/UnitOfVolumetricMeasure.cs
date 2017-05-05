@@ -14,6 +14,5 @@ namespace Data.Entities
 
         [Required, Column("VolumeInCubicCentimeters")]
         public decimal VolumeInCubicCentimeters { get; set; }
-
     }
 }

@@ -11,6 +11,5 @@ namespace Data.Entities
 
         [Required, StringLength(50), Column("Name")]
         public string Name { get; set; }
-
     }
 }

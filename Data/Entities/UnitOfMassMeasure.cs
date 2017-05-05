@@ -14,6 +14,5 @@ namespace Data.Entities
 
         [Required, Column("VolumeInGrams")]
         public decimal VolumeInGrams { get; set; }
-
     }
 }
