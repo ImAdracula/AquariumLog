@@ -21,13 +21,13 @@ namespace JessicasAquariumMonitor.Web.Controllers
         }
 
         [HttpPost]
-        public void Add(ChemicalType ChemicalType)
+        public void Add(ChemicalType chemicalType)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut, Route(@"{id}")]
-        public void Update(int id, ChemicalType ChemicalType)
+        public void Update(int id, ChemicalType chemicalType)
         {
             throw new NotImplementedException();
         }

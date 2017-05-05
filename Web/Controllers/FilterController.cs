@@ -21,13 +21,13 @@ namespace JessicasAquariumMonitor.Web.Controllers
         }
 
         [HttpPost]
-        public void Add(FilterType FilterType)
+        public void Add(FilterType filterType)
         {
             throw new NotImplementedException();
         }
 
         [HttpPut, Route(@"{id}")]
-        public void Update(int id, FilterType FilterType)
+        public void Update(int id, FilterType filterType)
         {
             throw new NotImplementedException();
         }
