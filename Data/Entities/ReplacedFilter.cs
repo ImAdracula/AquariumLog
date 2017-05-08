@@ -6,7 +6,7 @@ namespace JessicasAquariumMonitor.Data.Entities
     [Table("ReplacedFilters", Schema = "Aquarium")]
     public class ReplacedFilter
     {
-        [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None), Column("Id")]
+        [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("Id")]
         public int Id { get; set; }
 
         [Required, Column("LogEntryId"), ForeignKey(nameof(LogEntry))]

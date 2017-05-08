@@ -7,8 +7,8 @@ using JessicasAquariumMonitor.Data.Base;
 using JessicasAquariumMonitor.Data.Repositories;
 using JessicasAquariumMonitor.Helpers.Caching;
 using JessicasAquariumMonitor.Helpers.General;
-using FilterTypeEntity = JessicasAquariumMonitor.Data.Entities.FilterType;
 using JessicasAquariumMonitor.Types;
+using FilterTypeEntity = JessicasAquariumMonitor.Data.Entities.FilterType;
 
 namespace JessicasAquariumMonitor.Web.Controllers
 {
@@ -18,37 +18,42 @@ namespace JessicasAquariumMonitor.Web.Controllers
         private const string FilterTypesCacheKey = @"FilterTypes";
 
         private readonly ICacheProvider _cacheProvider;
-        private readonly IConverter<FilterTypeEntity, FilterType> _filterTypeConverter;
+        private readonly IConverter<FilterTypeEntity, FilterType> _entityFilterTypeConverter;
+        private readonly IConverter<FilterType, FilterTypeEntity> _filterTypeConverter;
         private readonly IFilterTypeRepository _filterTypeRepository;
         private readonly IUnitOfWorkFactory _unitOfWorkFactory;
 
         public FilterTypeController(IUnitOfWorkFactory unitOfWorkFactory, IFilterTypeRepository filterTypeRepository,
-            ICacheProvider cacheProvider, IConverter<FilterTypeEntity, FilterType> filterTypeConverter)
+            ICacheProvider cacheProvider, IConverter<FilterTypeEntity, FilterType> entityFilterTypeConverter,
+            IConverter<FilterType, FilterTypeEntity> filterTypeConverter)
         {
             _unitOfWorkFactory = unitOfWorkFactory;
             _filterTypeRepository = filterTypeRepository;
             _cacheProvider = cacheProvider;
+            _entityFilterTypeConverter = entityFilterTypeConverter;
             _filterTypeConverter = filterTypeConverter;
         }
 
-        private IEnumerable<FilterType> RefreshCache()
+        private void RefreshCache()
         {
             _cacheProvider.Remove(FilterTypesCacheKey);
 
-            return GetCachedFilterTypes();
+            GetCachedFilterTypes();
         }
 
         private IEnumerable<FilterType> GetCachedFilterTypes()
+            => _cacheProvider.GetOrAdd(FilterTypesCacheKey, GetFilterTypesFromDatabase, TimeSpan.FromDays(1));
+
+        private IEnumerable<FilterType> GetFilterTypesFromDatabase()
         {
             using (_unitOfWorkFactory.CreateAquariumReadOnlyUnitOfWork())
             {
-                return _cacheProvider.GetOrAdd(FilterTypesCacheKey, GetFilterTypesFromDatabase, TimeSpan.FromDays(1));
+                return _filterTypeRepository
+                    .GetAll()
+                    .Select(filterType => _entityFilterTypeConverter.Convert(filterType))
+                    .ToArray();
             }
         }
-
-        private IEnumerable<FilterType> GetFilterTypesFromDatabase() => _filterTypeRepository
-            .GetAll()
-            .Select(filterType => _filterTypeConverter.Convert(filterType));
 
         [HttpGet, Route(@"{id}")]
         public FilterType Get(int id)
@@ -64,27 +69,33 @@ namespace JessicasAquariumMonitor.Web.Controllers
         }
 
         [HttpGet, Route(@"All")]
-        public IEnumerable<FilterType> Get()
-        {
-            throw new NotImplementedException();
-        }
+        public IEnumerable<FilterType> Get() => GetCachedFilterTypes().ToArray();
 
-        [HttpPost]
+        [HttpPost, Route(@"")]
         public void Add(FilterType filterType)
         {
-            throw new NotImplementedException();
+            var filterTypeEntity = _filterTypeConverter.Convert(filterType);
+
+            using (var unitOfWork = _unitOfWorkFactory.CreateAquariumReadWriteUnitOfWork())
+            {
+                _filterTypeRepository.Add(filterTypeEntity);
+
+                unitOfWork.Commit();
+            }
+
+            RefreshCache();
         }
 
         [HttpPut, Route(@"{id}")]
         public void Update(int id, FilterType filterType)
         {
-            throw new NotImplementedException();
+            RefreshCache();
         }
 
         [HttpDelete, Route(@"{id}")]
         public void Delete(int id)
         {
-            throw new NotImplementedException();
+            RefreshCache();
         }
     }
 }

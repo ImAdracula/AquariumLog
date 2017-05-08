@@ -31,7 +31,7 @@ namespace JessicasAquariumMonitor.Data.Base
 
             _previousUnitOfWork = CurrentUnitOfWork;
 
-            IsReadonlyTransaction = _isolationLevel == IsolationLevel.ReadCommitted;
+            IsReadonlyTransaction = _isolationLevel != IsolationLevel.ReadCommitted;
             CurrentUnitOfWork = this;
         }
 

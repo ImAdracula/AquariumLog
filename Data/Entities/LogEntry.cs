@@ -14,7 +14,7 @@ namespace JessicasAquariumMonitor.Data.Entities
             ReplacedFilters = new HashSet<ReplacedFilter>();
         }
 
-        [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None), Column("Id")]
+        [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("Id")]
         public int Id { get; set; }
 
         [Required, Column("TimeStamp")]

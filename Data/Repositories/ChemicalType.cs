@@ -6,12 +6,12 @@ using JessicasAquariumMonitor.Data.Entities;
 namespace JessicasAquariumMonitor.Data.Repositories
 {
     public interface IChemicalTypeRepository : IBulkGetRepository<ChemicalType, int>,
-        IBulkAddRepository<ChemicalType, int>,
-        IBulkDeleteRepository<ChemicalType, int>
+        IBulkAddRepository<ChemicalType, int>, IBulkDeleteRepository<ChemicalType, int>
     {
     }
 
-    internal sealed class ChemicalTypeRepository : AbstractRepository<AquariumContext, int, ChemicalType>
+    internal sealed class ChemicalTypeRepository : AbstractRepository<AquariumContext, int, ChemicalType>,
+        IChemicalTypeRepository
     {
         public ChemicalTypeRepository(AquariumContext context) : base(context)
         {

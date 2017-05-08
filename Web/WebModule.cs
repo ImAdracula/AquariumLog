@@ -15,7 +15,7 @@ namespace JessicasAquariumMonitor.Web
         private WebModule()
         {
             _conversionTypes =
-                this.ThisAssemblyConcreteTypesImplementingTheseInterfaces(typeof(IConverter<,>)).ToArray();
+                this.ThisAssemblyConcreteTypesImplementingTheseInterfaces(typeof(IConverter)).ToArray();
         }
 
         public static WebModule Instance { get; } = new WebModule();

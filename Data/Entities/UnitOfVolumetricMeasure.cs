@@ -9,7 +9,7 @@ namespace JessicasAquariumMonitor.Data.Entities
         [Required, Column("VolumeInCubicCentimeters")]
         public decimal VolumeInCubicCentimeters { get; set; }
 
-        [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None), Column("Id")]
+        [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("Id")]
         public int Id { get; set; }
 
         [Required, StringLength(50), Column("Name")]

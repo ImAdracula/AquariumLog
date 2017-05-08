@@ -10,7 +10,7 @@ namespace JessicasAquariumMonitor.Data.Repositories
     {
     }
 
-    internal sealed class LogEntryRepository : AbstractRepository<AquariumContext, int, LogEntry>
+    internal sealed class LogEntryRepository : AbstractRepository<AquariumContext, int, LogEntry>, ILogEntryRepository
     {
         public LogEntryRepository(AquariumContext context) : base(context)
         {

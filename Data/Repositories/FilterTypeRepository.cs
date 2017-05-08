@@ -10,7 +10,8 @@ namespace JessicasAquariumMonitor.Data.Repositories
     {
     }
 
-    internal sealed class FilterTypeRepository : AbstractRepository<AquariumContext, int, FilterType>
+    internal sealed class FilterTypeRepository : AbstractRepository<AquariumContext, int, FilterType>,
+        IFilterTypeRepository
     {
         public FilterTypeRepository(AquariumContext context) : base(context)
         {

@@ -16,11 +16,10 @@ namespace JessicasAquariumMonitor.Data.Base
         protected AbstractRepository(TContext context)
         {
             _providedContext = context;
-            DbSet = Context.Set<TEntity>();
         }
 
         protected TContext Context => CurrentUnitOfWork?.Context ?? _providedContext;
-        protected DbSet<TEntity> DbSet { get; set; }
+        protected DbSet<TEntity> DbSet => Context.Set<TEntity>();
 
         private static UnitOfWork<TContext> CurrentUnitOfWork => UnitOfWork<TContext>.CurrentUnitOfWork;
 
@@ -111,7 +110,7 @@ namespace JessicasAquariumMonitor.Data.Base
 
         public void SaveChanges()
         {
-            if (CurrentUnitOfWork != null)
+            if (CurrentUnitOfWork == null)
             {
                 Context.SaveChanges();
             }
@@ -119,7 +118,7 @@ namespace JessicasAquariumMonitor.Data.Base
 
         public Task SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (CurrentUnitOfWork != null)
+            if (CurrentUnitOfWork == null)
             {
                 return Context.SaveChangesAsync(cancellationToken);
             }

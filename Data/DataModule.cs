@@ -18,8 +18,12 @@ namespace JessicasAquariumMonitor.Data
             registrator.RegisterForAllImplementedInterfaces(typeof(LogEntryRepository), Reuse.InCurrentScope);
             registrator.RegisterForAllImplementedInterfaces(typeof(ChemicalTypeRepository), Reuse.InCurrentScope);
             registrator.RegisterForAllImplementedInterfaces(typeof(FilterTypeRepository), Reuse.InCurrentScope);
-            registrator.RegisterDelegate(resolver => new UnitOfWorkFactory(resolver), Reuse.Singleton);
-            registrator.RegisterDelegate(resolver => new AquariumContext("AquariumDatabase"));
+
+            registrator.RegisterDelegate(typeof(IUnitOfWorkFactory), resolver => new UnitOfWorkFactory(resolver),
+                Reuse.Singleton);
+
+            registrator.RegisterDelegate(resolver => new AquariumContext("AquariumDatabase"), Reuse.Transient,
+                Setup.With(trackDisposableTransient: true));
         }
     }
 }

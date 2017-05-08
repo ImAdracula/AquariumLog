@@ -9,7 +9,7 @@ namespace JessicasAquariumMonitor.Data.Entities
     {
         private const string LogEntryAndChemicalTypeUniqueIndexName = "IX_AdministeredChemicals_LogEntryAndChemicalType";
 
-        [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.None), Column("Id")]
+        [Key, Required, DatabaseGenerated(DatabaseGeneratedOption.Identity), Column("Id")]
         public int Id { get; set; }
 
         [Required, Column("LogEntryId"), ForeignKey(nameof(LogEntry)),
