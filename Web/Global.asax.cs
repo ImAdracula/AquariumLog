@@ -1,6 +1,8 @@
 ﻿using System.Web;
 using System.Web.Http;
-using System.Web.Mvc;
+using DryIoc;
+using DryIoc.WebApi;
+using JessicasAquariumMonitor.Helpers.DependencyInjection;
 
 namespace JessicasAquariumMonitor.Web
 {
@@ -8,9 +10,17 @@ namespace JessicasAquariumMonitor.Web
     {
         protected void Application_Start()
         {
-            AreaRegistration.RegisterAllAreas();
+            SetupDependencyInjection(GlobalConfiguration.Configuration);
+
             GlobalConfiguration.Configure(WebApiConfig.Register);
-            FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
+        }
+
+        private static void SetupDependencyInjection(HttpConfiguration httpConfiguration)
+        {
+            var container = new Container()
+                .WithWebApi(httpConfiguration, throwIfUnresolved: type => type.IsController());
+
+            container.RegisterAll(WebModule.Instance);
         }
     }
 }
