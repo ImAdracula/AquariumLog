@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using JessicasAquariumMonitor.Data.Base;
 using JessicasAquariumMonitor.Data.Entities;
@@ -8,6 +9,7 @@ namespace JessicasAquariumMonitor.Data.Repositories
     public interface ILogEntryRepository : IBulkGetRepository<LogEntry, int>, IBulkAddRepository<LogEntry, int>,
         IBulkDeleteRepository<LogEntry, int>
     {
+        IEnumerable<LogEntry> GetEntriesByData(DateTime start, DateTime end);
     }
 
     internal sealed class LogEntryRepository : AbstractRepository<AquariumContext, int, LogEntry>, ILogEntryRepository
@@ -27,5 +29,8 @@ namespace JessicasAquariumMonitor.Data.Repositories
 
             return entry;
         }
+
+        public IEnumerable<LogEntry> GetEntriesByData(DateTime start, DateTime end)
+            => DbSet.Where(entry => entry.TimeStamp >= start && entry.TimeStamp <= end);
     }
 }

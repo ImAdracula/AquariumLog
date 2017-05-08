@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Data;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -41,9 +42,16 @@ namespace JessicasAquariumMonitor.Data.Base
 
         public void Commit()
         {
-            Context.SaveChanges();
+            try
+            {
+                Context.SaveChanges();
 
-            CommitAndBeginNewTransaction();
+                CommitAndBeginNewTransaction();
+            }
+            catch (DbUpdateException exception)
+            {
+                throw new DatabaseUpdateException(@"Error saving changes", exception);
+            }
         }
 
         public Task CommitAsync(CancellationToken cancellationToken = default(CancellationToken))

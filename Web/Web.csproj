@@ -96,11 +96,13 @@
     <Compile Include="Controllers\ChemicalController.cs" />
     <Compile Include="Controllers\FilterController.cs" />
     <Compile Include="Controllers\LogEntryController.cs" />
+    <Compile Include="Converters\ChemicalTypeConverter.cs" />
     <Compile Include="Converters\FilterTypeConverter.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebGuard.cs" />
     <Compile Include="WebModule.cs" />
   </ItemGroup>
   <ItemGroup>

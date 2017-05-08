@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="Base\AbstractRepository.cs" />
     <Compile Include="Base\AquariumContext.cs" />
+    <Compile Include="Base\DatabaseUpdateException.cs" />
     <Compile Include="Base\DecimalAttribute.cs" />
     <Compile Include="Base\IAddRepository.cs" />
     <Compile Include="Base\IBulkAddRepository.cs" />

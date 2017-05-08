@@ -10,13 +10,13 @@ namespace JessicasAquariumMonitor.Web.Converters
         public FilterType Convert(FilterTypeEntity from) => new FilterType
         {
             Id = from.Id,
-            Name = from.Name
+            Name = from.Name.Trim()
         };
 
         public FilterTypeEntity Convert(FilterType from) => new FilterTypeEntity
         {
             Id = from.Id,
-            Name = from.Name
+            Name = from.Name.Trim()
         };
     }
 }

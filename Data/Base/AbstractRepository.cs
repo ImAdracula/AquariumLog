@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
@@ -110,20 +111,36 @@ namespace JessicasAquariumMonitor.Data.Base
 
         public void SaveChanges()
         {
-            if (CurrentUnitOfWork == null)
+            if (CurrentUnitOfWork != null)
+            {
+                return;
+            }
+
+            try
             {
                 Context.SaveChanges();
+            }
+            catch (DbUpdateException exception)
+            {
+                throw new DatabaseUpdateException(@"Error saving changes", exception);
             }
         }
 
         public Task SaveChangesAsync(CancellationToken cancellationToken = default(CancellationToken))
         {
-            if (CurrentUnitOfWork == null)
+            if (CurrentUnitOfWork != null)
+            {
+                return Task.FromResult(true);
+            }
+
+            try
             {
                 return Context.SaveChangesAsync(cancellationToken);
             }
-
-            return Task.FromResult(true);
+            catch (DbUpdateException exception)
+            {
+                throw new DatabaseUpdateException(@"Error saving changes", exception);
+            }
         }
     }
 }
